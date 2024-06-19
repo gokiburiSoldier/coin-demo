@@ -1,0 +1,191 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-size: 26px;
+    user-select: none;
+    color: #adadad;
+    text-shadow: 1px 1px #ffffffa7,
+                 -1px -1px black;
+}
+
+html,body {
+    width: 100%;
+    height: 100%;
+    background-color: skyblue;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+li::marker {
+    content: '';
+}
+
+div.coin {
+    width: 210px;
+    height: 210px;
+    background-color: #adadad;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    box-shadow: 4px 4px 14px #22222297;
+}
+
+li {
+    display: inline-block;
+    position: absolute;
+    left: calc(50% - .5em);
+    transform-origin: center 104px;
+    font-family: '隶书';
+}
+
+li:nth-child(1),li:nth-child(2),li:nth-child(3) {
+    transform: rotate(calc(var(--i) * 23deg));
+}
+
+li:nth-child(4),li:nth-child(5),li:nth-child(6) {
+    transform: rotate(calc(var(--i) * 23deg));
+}
+
+span.money {
+    display: block;
+    position: absolute;
+    font-size: 154px;
+    font-family: '隶书';
+    margin-top: 4px;
+    font-weight: 900;
+}
+
+span.money::before {
+    content: var(--m);
+}
+
+span.yi-yuan {
+    width: 4em;
+    text-align: center;
+    font-size: 18px;
+    position: absolute;
+    left: calc(50% - 88px);
+    top: calc(50% - 8px);
+    font-weight: 700;
+}
+
+span.money::after {
+    content: '元';
+    position: absolute;
+    font-size: 36px;
+    font-family: '微软雅黑';
+    top: calc(50%);
+}
+
+span.year {
+    position: relative;
+    top: 160px;
+    font-weight: 300;
+    font-family: '宋体';
+}
+
+.coin::after {
+    position: absolute;
+    top: calc(50% - 100px);
+    content: '';
+    width: 200px;
+    height: 200px;
+    display: block;
+    border-radius: 100%;
+    border: black 2px solid;
+    border-left: white;
+    border-top: white;
+}
+
+
+div.tool {
+    position: absolute;
+    bottom: 100px;
+    transform: translate(-50%);
+}
+
+div.tool {
+    color: #00ff00;
+    text-shadow: none;
+    width: 180px;
+    height: 2em;
+    background: #00c1c1;
+    text-align: center;
+    line-height: 2em;
+    border-left: blue 10px solid;
+    border-right: blue 10px solid;
+    cursor: pointer;
+}
+
+div.rot {
+    left: 66%;
+}
+
+div.rot:active ~ div.coin {
+    animation: rotate .8s infinite linear;
+}
+
+div.trans {
+    left: 33%;
+}
+
+div.trans:active ~ div.coin {
+    animation: trans .3s infinite linear;
+}
+
+div.chengjiu {
+    position: absolute;
+    text-shadow: none;
+    width: 200px;
+    height: 100px;
+    background-color: #00c1c1;
+    top: -114px;
+    right: 0;
+    color: #3c3c3c;
+    text-align: center;
+    line-height: 50px;
+    border: black 1px solid;
+    animation: gone 5s linear;
+}
+
+div.chengjiu * {
+    text-shadow: none;
+    color: #3c3c3c;
+}
+
+
+@keyframes rotate {
+    0% {
+        box-shadow: none;
+    }
+    to {
+        transform: rotateY(360deg);
+        box-shadow: none;
+    }
+}
+
+@keyframes trans {
+    0% {
+        transform: translate(-300px);
+    }
+    50% {
+        transform: translate(300px);
+    }
+    100% {
+        transform: translate(-300px);
+    }
+}
+
+@keyframes gone {
+    0% {
+        top: 0;
+    }
+    40% {
+        top: 0;
+    }
+    100% {
+        top: -114px;
+    }
+}
